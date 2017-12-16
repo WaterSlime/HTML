@@ -25,7 +25,6 @@
 		let level = 1;
 		let linesCleared = 0;
 		let hold = null;
-		let jeff = new Audio("BOOM.wav");
 		let next;
 		let images = {};
 		
@@ -108,11 +107,6 @@
 				if (lines.length > 0) {
 					const scores = [null, 40, 100, 300, 1200];
 					score += level * scores[lines.length];
-				}
-				if (lines.length == 4) {
-					jeff.pause();
-					jeff.currentTime = 0;
-					jeff.play();
 				}
 				lines = lines.sort();
 				for (let line of lines) {
