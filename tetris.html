@@ -1,4 +1,4 @@
-<html  style="background-image:url(https://i.imgur.com/Yafbed2.png); background-repeat:no-repeat; background-position: 8px 8px;" id="html">
+<html>
 	<head>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
 		<title>TOOTRIS</title>
@@ -25,7 +25,6 @@
 		let level = 1;
 		let linesCleared = 0;
 		let hold = null;
-		let jeff = new Audio("BOOM.wav");
 		let next;
 		let images = {};
 		
@@ -110,11 +109,7 @@
 					const scores = [null, 40, 100, 300, 1200];
 					score += level * scores[lines.length];
 				}
-				if (lines.length == 4) {
-					jeff.pause();
-					jeff.currentTime = 0;
-					jeff.play();
-				}
+
 				lines = lines.sort();
 				for (let line of lines) {
 					for (let y = line - 1; y >= 0; y--) {
@@ -272,10 +267,11 @@
 				for (let y = 0; y < board.gridY; y++) {
 					for (let x = 0; x < board.gridX; x++) {
 						if ((y * board.gridX + x) % 2 == num) {
-							noFill();
+							noStroke();
+							fill(50);
 						} else {
 							noStroke();
-							fill(0);
+							fill(25);
 						}
 						rect(x * board.blockSize, y * board.blockSize, board.blockSize, board.blockSize);
 					}
